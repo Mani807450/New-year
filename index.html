@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Happy New Year Venkata Lakshmi ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL ------------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+.page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.script-font {
+    font-family: "Great Vibes", cursive;
+    font-weight: normal;
+}
+
+/* ---------------------------------------------
+   PAGE–1 (Outer Page - Midnight Theme)
+----------------------------------------------*/
+#home {
+    z-index: 10;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    /* Deep Blue Midnight Overlay */
+    box-shadow: inset 0 0 0 2000px rgba(5, 10, 30, 0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* Title */
+.open-title {
+    font-family: "Great Vibes", cursive; 
+    font-size: 4.5rem; /* Desktop size */
+    margin: 0 20px;
+    color: #f0f8ff; 
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6);
+    animation: fadeIn 2s ease-out;
+    line-height: 1.2;
+}
+
+/* Button */
+.tap-btn {
+    margin-top: 50px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 15px 45px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #f0f8ff;
+    letter-spacing: .5px;
+    box-shadow: 0px 0px 20px rgba(79, 172, 254, 0.5);
+    animation: fadeIn 2.5s ease-out, pulse 2s infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1); box-shadow: 0px 0px 20px rgba(79, 172, 254, 0.5);}
+    50% {transform: scale(1.05); box-shadow: 0px 0px 35px rgba(79, 172, 254, 0.8);}
+    100% {transform: scale(1); box-shadow: 0px 0px 20px rgba(79, 172, 254, 0.5);}
+}
+
+/* Particles */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: drift 10s infinite ease-in-out;
+}
+@keyframes drift {
+    0% {transform: translateY(0) translateX(0); opacity: .2;}
+    50% {transform: translateY(-25px) translateX(15px); opacity: .8;}
+    100% {transform: translateY(0) translateX(0); opacity: .2;}
+}
+
+
+/* ---------------------------------------------
+   PAGE–2 (Inner Page: MIDNIGHT SKY THEME)
+----------------------------------------------*/
+#messagePage {
+    opacity: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, #020111, #0a0e29, #152238);
+    overflow-y: auto;
+    perspective: 1000px;
+    -webkit-overflow-scrolling: touch; 
+    overflow-x: hidden; 
+}
+
+/* ================= NEW: BIG MOON & OVERLAPPING CLOUDS ================= */
+.moon {
+    position: absolute;
+    /* Bigger size and moved left */
+    top: 30px;
+    left: 20px;
+    width: 180px;
+    height: 180px;
+    background: #fffce0; 
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 252, 224, 0.5), inset 0 0 30px rgba(255, 255, 240, 0.5);
+    z-index: 1; /* Behind clouds */
+    opacity: 0.95;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15); /* Slightly more visible */
+    border-radius: 50%;
+    filter: blur(30px); /* softer edges */
+    z-index: 2; /* In front of moon */
+    animation: cloudDrift linear infinite;
+}
+
+/* Positioned to overlap the top half of the big moon */
+.cloud-1 { width: 300px; height: 80px; top: 40px; left: -20%; animation-duration: 45s; opacity: 0.25; }
+.cloud-2 { width: 350px; height: 90px; top: 80px; left: -30%; animation-duration: 60s; animation-delay: -15s; opacity: 0.2;}
+.cloud-3 { width: 250px; height: 60px; top: 20px; left: -10%; animation-duration: 35s; animation-delay: -5s; opacity: 0.3;}
+/* New Clouds for density */
+.cloud-4 { width: 280px; height: 70px; top: 110px; left: -25%; animation-duration: 50s; animation-delay: -25s; opacity: 0.15;}
+.cloud-5 { width: 200px; height: 50px; top: 60px; left: -15%; animation-duration: 40s; animation-delay: -10s; opacity: 0.2;}
+.cloud-6 { width: 320px; height: 85px; top: 130px; left: -35%; animation-duration: 55s; animation-delay: -2s; opacity: 0.1;}
+
+
+@keyframes cloudDrift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(130vw); }
+}
+/* ========================================================== */
+
+
+/* Twinkling Stars */
+.bokeh {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+    z-index: 0;
+    animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 8px rgba(255,255,255,0.8); }
+    100% { opacity: 0.2; transform: scale(0.8); }
+}
+
+/* Shooting Stars */
+.shooting-star {
+    position: absolute;
+    height: 4px; 
+    background: linear-gradient(-45deg, rgba(255,255,255,1), rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 10px rgba(105, 155, 255, 1)); 
+    animation: tail 1000ms ease-in-out forwards, shooting 1000ms ease-in-out forwards;
+    opacity: 0;
+    z-index: 0; 
+    pointer-events: none;
+}
+
+@keyframes tail {
+    0% { width: 0; }
+    30% { width: 300px; } 
+    100% { width: 0; }
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0) translateY(0) rotateZ(-45deg); opacity: 1; }
+    100% { transform: translateX(-1200px) translateY(1200px) rotateZ(-45deg); opacity: 0; }
+}
+
+
+/* ------------- MIDNIGHT CARD ------------- */
+.card {
+    margin: 40px auto 80px auto; 
+    max-width: 700px;
+    width: 85%; 
+
+    background-image: url('snapshot.jpg');
+    background-size: cover;
+    background-position: center top; 
+    background-repeat: no-repeat;
+
+    position: relative;
+    padding: 40px 40px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 2px solid #c0c0c0; 
+    box-shadow: 0 15px 45px rgba(0, 10, 30, 0.8); 
+    
+    animation: floatSoft 6s infinite ease-in-out;
+    z-index: 10; /* Ensure card is above moon/clouds */
+}
+
+/* The Overlay */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.45); 
+    box-shadow: inset 0 0 100px rgba(0, 5, 15, 0.8);
+    z-index: 1;
+    backdrop-filter: blur(2px); 
+}
+
+.card > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes floatSoft {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-8px);}
+    100% {transform: translateY(0);}
+}
+
+/* Typography */
+.message-container {
+    color: #ffffff; 
+}
+
+.card-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #f0f8ff;
+    text-shadow: 0px 0px 10px rgba(79, 172, 254, 0.8);
+}
+
+.message-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 600;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8); 
+}
+
+.ornament {
+    color: #87ceeb;
+    font-size: 1.4rem;
+    text-shadow: 0px 0px 5px rgba(135, 206, 235, 0.8);
+}
+
+.emphasis {
+    font-family: "Great Vibes", cursive;
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    color: #b0e0e6;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.8);
+}
+
+.signature {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #f0f8ff;
+    text-align: right;
+    font-weight: 600;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.signature .script-font {
+    font-size: 1.8rem;
+    color: #b0e0e6;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE TWEAKS)
+   ========================================= */
+@media (max-width: 600px) {
+    .open-title {
+        font-size: 3rem; 
+        margin-top: -50px; 
+    }
+    
+    /* Adjust moon size for mobile (still big, but fits screen) */
+    .moon {
+        width: 120px; height: 120px; top: 20px; left: 15px;
+    }
+    /* Scale clouds down slightly on mobile */
+    .cloud { transform: scale(0.7); }
+
+    .card {
+        width: 88%;
+        padding: 30px 20px; 
+        margin: 30px auto 60px auto;
+    }
+
+    .card-title {
+        font-size: 2.2rem;
+    }
+    
+    .message-body {
+        font-size: 1rem; 
+        line-height: 1.6;
+    }
+    
+    .emphasis {
+        font-size: 1.5rem;
+    }
+
+    .signature .script-font {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0; transform: scale(1.05);}
+}
+
+</style>
+</head>
+<body>
+
+
+<div id="home" class="page">
+    <h1 class="open-title">Happy New Year <br> Venkata Lakshmi ✨</h1>
+    <button class="tap-btn" onclick="revealMessage()">Open My Heart →</button>
+</div>
+
+
+<div id="messagePage" class="page">
+
+    <div id="bokehContainer"></div>
+    
+    <div id="shootingContainer"></div>
+
+    <div class="moon"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+    <div class="cloud cloud-6"></div>
+
+    <div class="card">
+        <div class="message-container">
+            
+            <div class="card-title">My Dearest Love,</div>
+
+            <div class="message-body">
+                <p><span class="ornament">❦</span> This New Year is special because it begins with us and our beautiful journey together.</p>
+
+                <div class="emphasis">Growing Together, Hand in Hand</div>
+                <p>Let's continue learning, supporting, and deeply loving each other every single day.</p>
+
+                <div class="emphasis">Promises for the Coming Years</div>
+                <p>More understanding, clearer memories, and endless love — no matter what comes our way.</p>
+
+                <div class="emphasis">A New Year Begins with You</div>
+                <p>As the calendar turns, my heart turns to you. Every new beginning feels utterly brighter by your side.</p>
+                 
+                <p style="margin: 30px 0; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.3); padding: 15px 0;">
+                    <span class="ornament">♥</span> Someday, we will celebrate a New Year together. My heart is waiting for that beautiful moment. <span class="ornament">♥</span>
+                 </p>
+
+                <div class="emphasis">Happy New Year, My Love</div>
+                <p>This year, and every year after, my wish is simple: you and me, forever. Here's to an eternity of "us."</p>
+            </div>
+
+            <div class="signature">
+                — With all my love,<br>
+                <span class="script-font">From my heart to yours, always.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+/* 1. OUTER PAGE EFFECTS */
+for(let i=0; i<40; i++){ 
+    let p = document.createElement("div");
+    p.className = "particle";
+    let size = 2 + Math.random()*4; 
+    p.style.width = p.style.height = size+"px";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.top = Math.random()*100 + "vh";
+    p.style.animationDelay = Math.random()*5 + "s";
+    p.style.animationDuration = (8 + Math.random()*10) + "s";
+    document.getElementById("home").appendChild(p);
+}
+
+
+/* 2. INNER PAGE TWINKLING STARS LOGIC */
+function createBokeh() {
+    const container = document.getElementById("bokehContainer");
+    const count = 70; 
+
+    for(let i=0; i<count; i++){
+        let b = document.createElement("div");
+        b.className = "bokeh";
+        let x = Math.random() * 100;
+        let y = Math.random() * 100;
+        let size = 2 + Math.random() * 6; 
+        let delay = Math.random() * 5;
+        let duration = 2 + Math.random() * 4; 
+
+        b.style.left = x + "vw";
+        b.style.top = y + "vh";
+        b.style.width = size + "px";
+        b.style.height = size + "px";
+        b.style.animationDelay = delay + "s";
+        b.style.animationDuration = duration + "s";
+        container.appendChild(b);
+    }
+}
+
+/* ================= FASTER & BIGGER SHOOTING STARS ================= */
+function launchShootingStar() {
+    const container = document.getElementById("shootingContainer");
+    if(!container) return; 
+
+    const star = document.createElement("div");
+    star.className = "shooting-star";
+
+    // Start from top right area
+    star.style.top = Math.random() * 50 - 10 + "vh";
+    star.style.right = Math.random() * 50 - 10 + "vw"; 
+
+    // MUCH FASTER: Speed is now between 0.8s and 1.8s
+    let duration = 800 + Math.random() * 1000;
+    
+    star.style.animationDuration = `${duration}ms, ${duration}ms`;
+
+    container.appendChild(star);
+
+    setTimeout(() => { star.remove(); }, duration + 100);
+}
+
+// Start the continuous loop
+let shootingStarInterval;
+function startShootingStarsLoop() {
+     launchShootingStar();
+
+     // Rapid fire loop
+     shootingStarInterval = setInterval(() => {
+        launchShootingStar();
+
+        // 40% chance to launch extra burst
+        if(Math.random() > 0.6){
+             setTimeout(()=>{ launchShootingStar(); }, 150);
+        }
+
+     }, 700 + Math.random() * 1200); 
+}
+/* ====================================================================== */
+
+
+/* 3. SWITCH PAGE LOGIC */
+function revealMessage(){
+    const home = document.getElementById("home");
+    const msg = document.getElementById("messagePage");
+
+    home.style.animation = "fadeOut 1s forwards";
+
+    setTimeout(()=>{
+        home.style.display = "none";
+        msg.style.opacity = "1";
+        msg.style.pointerEvents = "auto";
+        msg.style.animation = "fadeIn 1.5s ease"; 
+        
+        createBokeh(); 
+        startShootingStarsLoop(); 
+    }, 900);
+}
+
+</script>
+
+</body>
+  </html>
